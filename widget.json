@@ -1,0 +1,34 @@
+{
+  "name": "About App",
+  "package": "com.fliplet.about-app",
+  "version": "1.0.0",
+  "icon": "img/icon.png",
+  "tags": ["type:appComponent", "category:general"],
+  "provider_only": false,
+  "references": [],
+  "html_tag": "div",
+  "interface": {
+    "dependencies": [
+      "fliplet-core",
+      "fliplet-studio-ui",
+      "tinymce",
+      "bootstrap"
+    ],
+    "assets": [
+      "css/interface.css",
+      "js/interface.js"
+    ]
+  },
+  "build": {
+    "dependencies": [
+      "fliplet-core",
+      "bootstrap",
+      "moment",
+      "handlebars"
+    ],
+    "assets": [
+      "css/build.css",
+      "js/build.js"
+    ]
+  }
+}

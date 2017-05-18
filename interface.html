@@ -1,0 +1,50 @@
+<div class="widget-holder">
+  <form class="form form-horizontal">
+    <header>
+      <p>Configure the About this app overlay</p>
+      <a href="#">Need help?</a>
+    </header>
+
+    <div class="form-group clearfix inline-radio">
+      <div class="col-sm-4 control-label">
+        <label for="swipe-to-save">Do you want to enable the <i>About this app</i> overlay?</label>
+      </div>
+      <div class="col-sm-8">
+        <div class="radio-buttons clearfix">
+          <div class="radio radio-icon">
+            <input type="radio" id="enable-yes" name="enable_about" value="show">
+            <label for="enable-yes">Yes</label>
+          </div>
+          <div class="radio radio-icon">
+            <input type="radio" id="enable-no" name="enable_about" value="no-show">
+            <label for="enable-no">No</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-information">
+      <h2><small>Configure the information of your app and organisation</small></h2>
+      <div class="form-group clearfix">
+        <div class="col-sm-12">
+          <textarea data-tinymce id="appInfo" class="form-control"></textarea>
+        </div>
+        <div class="col-sm-12">
+          <h2><small>How to use</small></h2>
+          <p>Use the following to:</p>
+          <ul>
+            <li><code>\{{app_name}}</code> - insert your app name</li>
+            <li><code>\{{organisation_name}}</code> - insert your organisation name</li>
+            <li><code>\{{current_year}}</code> - insert the current year</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<template id="template-info">
+  <h2>\{{app_name}}</h2>
+  <p>&copy; \{{organisation_name}} \{{current_year}}</p>
+</template>
