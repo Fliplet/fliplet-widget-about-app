@@ -1,3 +1,19 @@
-<div data-about-app-id="{{id}}" data-about-app-uuid="{{uuid}}">
-
-</div>
+{{#if enabled}}
+<template name="overlay-about-app" data-about-app-id="{{id}}" data-about-app-uuid="{{uuid}}">
+  <div class="client-info"></div>
+  <div class="fliplet-info">
+    <p class="foot-note">App based on Fliplet technology</p>
+    <ul>
+      <li><a href="#" onclick="Fliplet.Navigate.url('https://fliplet.com/terms/');return false;">Terms of use</a></li>
+      <li><a href="#" onclick="Fliplet.Navigate.url('https://fliplet.com/privacy/');return false;">Privacy policy</a></li>
+    </ul>
+    <hr>
+    <div class="app-info">
+      <p>Last updated: <span class="updated-time">{{updatedAt}}</span></p>
+      <p>App version: <span class="app-version">{{appVersion}}</span> - Framework version: <span class="framework-version">{{frameworkVersion}}</span></p>
+    </div>
+    <div class="update-buttons clearfix">
+      <a href="#" class="col-xs-12 check-updates">Check updates</a>
+    </div>
+  </div>
+</template> {{/if}}

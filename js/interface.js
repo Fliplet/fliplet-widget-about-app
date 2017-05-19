@@ -30,8 +30,16 @@ tinymce.init({
 
 $('form').submit(function(event) {
   event.preventDefault();
-  data.enabled = $('[name="enable_about"]:checked').val();
-  data.infoTemplate = tinymce.get('appInfo').getContent() || infoTemplate;
+  var enabledValue = $('[name="enable_about"]:checked').val();
+
+  if (enabledValue === 'true') {
+    data.enabled = true;
+  } else {
+    data.enabled = false;
+  }
+
+  var toTrimTemplate = tinymce.get('appInfo').getContent() || infoTemplate;
+  data.infoTemplate = toTrimTemplate.trim();
 
   Fliplet.Widget.save(data).then(function() {
     Fliplet.Widget.complete();
@@ -45,7 +53,7 @@ Fliplet.Widget.onSaveRequest(function() {
 
 // FUNCTIONS
 function init() {
-  var enableToggle = data.enabled ? data.enabled : 'no-show';
+  var enableToggle = data.enabled ? data.enabled : 'false';
   $('[name="enable_about"][value="' + enableToggle + '"]').prop('checked', true).trigger('change');
 }
 
@@ -53,11 +61,12 @@ function init() {
 $('[name="enable_about"]').on('change', function() {
   var value = $(this).val();
 
-  if (value === 'show') {
+  if (value === 'true') {
     $('.app-information').addClass('show');
   } else {
     $('.app-information').removeClass('show');
   }
 });
 
+// INIT
 init();

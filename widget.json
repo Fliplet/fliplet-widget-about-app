@@ -24,7 +24,8 @@
       "fliplet-core",
       "bootstrap",
       "moment",
-      "handlebars"
+      "handlebars",
+      "animate-css"
     ],
     "assets": [
       "css/build.css",
