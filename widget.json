@@ -20,16 +20,7 @@
     ]
   },
   "build": {
-    "dependencies": [
-      "fliplet-core",
-      "bootstrap",
-      "moment",
-      "handlebars",
-      "animate-css"
-    ],
-    "assets": [
-      "css/build.css",
-      "js/build.js"
-    ]
+    "dependencies": [],
+    "assets": []
   }
 }
