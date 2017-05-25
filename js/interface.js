@@ -45,16 +45,15 @@ Fliplet.Widget.onSaveRequest(function() {
 
 // FUNCTIONS
 function init() {
-  Fliplet.App.Settings.get('about').then(function (setting) {
-    onTinyMCEReady.then(function () {
-      var template = setting && setting.template;
-      if (template) {
-        tinymce.get('appInfo').setContent(template);
-      } else {
-        tinymce.get('appInfo').setContent(infoTemplate);
-      }
-    });
-  })
+  onTinyMCEReady.then(function () {
+    var about = Fliplet.App.Settings.get('about');
+    var template = about && about.template;
+    if (template) {
+      tinymce.get('appInfo').setContent(template);
+    } else {
+      tinymce.get('appInfo').setContent(infoTemplate);
+    }
+  });
 }
 
 // INIT
