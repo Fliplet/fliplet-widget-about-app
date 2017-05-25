@@ -1,7 +1,8 @@
-var widgetId = Fliplet.Widget.getDefaultId();
-var data = Fliplet.Widget.getData(widgetId) || {};
-var organizationId = Fliplet.Env.get('organizationId');
 var infoTemplate = $('#template-info').html();
+
+var onTinyMCEReady = new Promise(function(resolve) {
+  document.addEventListener('tinymce.init', resolve, false);
+})
 
 // TinyMCE INIT
 tinymce.init({
@@ -19,31 +20,22 @@ tinymce.init({
   min_height: 300,
   setup: function(editor) {
     editor.on('init', function() {
-      if ("infoTemplate" in data && data.infoTemplate !== "") {
-        tinymce.get('appInfo').setContent(data.infoTemplate);
-      } else {
-        tinymce.get('appInfo').setContent(infoTemplate);
-      }
+      var event = new Event('tinymce.init');
+      document.dispatchEvent(event);
     });
   }
 });
 
 $('form').submit(function(event) {
   event.preventDefault();
-  var enabledValue = $('[name="enable_about"]:checked').val();
 
-  if (enabledValue === 'true') {
-    data.enabled = true;
-  } else {
-    data.enabled = false;
-  }
-
-  var toTrimTemplate = tinymce.get('appInfo').getContent() || infoTemplate;
-  data.infoTemplate = toTrimTemplate.trim();
-
-  Fliplet.Widget.save(data).then(function() {
+  var template = tinymce.get('appInfo').getContent().trim() || infoTemplate.trim();
+  
+  Fliplet.App.Settings.set({
+    about: { template: template }
+  }).then(function () {
     Fliplet.Widget.complete();
-  });
+  })
 });
 
 // Fired from Fliplet Studio when the external save button is clicked
@@ -53,20 +45,17 @@ Fliplet.Widget.onSaveRequest(function() {
 
 // FUNCTIONS
 function init() {
-  var enableToggle = data.enabled ? data.enabled : 'false';
-  $('[name="enable_about"][value="' + enableToggle + '"]').prop('checked', true).trigger('change');
+  Fliplet.App.Settings.get('about').then(function (setting) {
+    onTinyMCEReady.then(function () {
+      var template = setting && setting.template;
+      if (template) {
+        tinymce.get('appInfo').setContent(template);
+      } else {
+        tinymce.get('appInfo').setContent(infoTemplate);
+      }
+    });
+  })
 }
-
-// ATTACH EVENT LISTENERS
-$('[name="enable_about"]').on('change', function() {
-  var value = $(this).val();
-
-  if (value === 'true') {
-    $('.app-information').addClass('show');
-  } else {
-    $('.app-information').removeClass('show');
-  }
-});
 
 // INIT
 init();

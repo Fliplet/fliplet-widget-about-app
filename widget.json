@@ -3,8 +3,8 @@
   "package": "com.fliplet.about-app",
   "version": "1.0.0",
   "icon": "img/icon.png",
-  "tags": ["type:appComponent", "category:general"],
-  "provider_only": false,
+  "tags": [],
+  "provider_only": true,
   "references": [],
   "html_tag": "div",
   "interface": {
