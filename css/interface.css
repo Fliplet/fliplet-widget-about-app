@@ -3,7 +3,15 @@ body {
 }
 
 .widget-holder {
-  padding: 15px;
+  padding: 15px 15px 60px;
+}
+
+#success-alert {
+  display: none;
+}
+
+#success-alert.saved {
+  display: block;
 }
 
 header {
@@ -45,11 +53,11 @@ header a {
 }
 
 #success-alert {
-    opacity: 0;
-    -webkit-transition: opacity 0.3s ease;
-    transition: opacity 0.3s ease;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 #success-alert.saved {
-    opacity: 1;
+  opacity: 1;
 }
