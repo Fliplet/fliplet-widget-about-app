@@ -34,6 +34,8 @@ $('form').submit(function(event) {
   Fliplet.App.Settings.set({
     about: { template: template }
   }).then(function () {
+    $('#success-alert').addClass('saved');
+    setTimeout(function(){ $('#success-alert').removeClass('saved'); }, 2000);
     Fliplet.Widget.complete();
   })
 });

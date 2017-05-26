@@ -43,3 +43,13 @@ header p {
 header a {
   text-decoration: none;
 }
+
+#success-alert {
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+
+#success-alert.saved {
+    opacity: 1;
+}
