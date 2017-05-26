@@ -1,0 +1,36 @@
+<div class="widget-holder">
+  <form class="form form-horizontal">
+    <header>
+      <p>Configure the About this app overlay</p>
+      <a href="#">Need help?</a>
+    </header>
+
+    <div role="alert" class="fade-transition alert alert-success" id="success-alert">
+      The About this app has been updated
+    </div>
+
+    <div class="app-information">
+      <h2><small>Configure the information of your app and organisation</small></h2>
+      <div class="form-group clearfix">
+        <div class="col-sm-12">
+          <textarea data-tinymce id="appInfo" class="form-control"></textarea>
+        </div>
+        <div class="col-sm-12">
+          <h2><small>How to use</small></h2>
+          <p>Use the following to:</p>
+          <ul>
+            <li><code>\{{appName}}</code> - insert your app name</li>
+            <li><code>\{{organisationName}}</code> - insert your organisation name</li>
+            <li><code>\{{currentYear}}</code> - insert the current year</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<template id="template-info">
+  <h2>\{{appName}}</h2>
+  <p>&copy; \{{organisationName}} \{{currentYear}}</p>
+</template>
