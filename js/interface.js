@@ -29,7 +29,7 @@ tinymce.init({
 $('form').submit(function(event) {
   event.preventDefault();
 
-  var template = tinymce.get('appInfo').getContent().trim() || infoTemplate.trim();
+  var template = tinymce.get('appInfo').getContent().trim();
   
   Fliplet.App.Settings.set({
     about: { template: template }
@@ -50,8 +50,9 @@ function init() {
   onTinyMCEReady.then(function () {
     var about = Fliplet.App.Settings.get('about');
     var template = about && about.template;
-    if (template) {
-      tinymce.get('appInfo').setContent(template);
+    
+    if (about && about.hasOwnProperty('template')) {
+      tinymce.get('appInfo').setContent(about.template);
     } else {
       tinymce.get('appInfo').setContent(infoTemplate);
     }
