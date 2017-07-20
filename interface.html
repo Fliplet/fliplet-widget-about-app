@@ -10,7 +10,9 @@
     </div>
 
     <div class="app-information">
-      <h2><small>Configure the information of your app and organisation</small></h2>
+      <p><small>Use the 'About this app' overlay to show legal and regulatory information.</small></p>
+      <p><small>To load the 'About this app' overlay, tap the icon at the bottom of your app's menu.</small></p>
+      <p><small>The 'About this app' overlay will also help you to debug the app and confirm what version your users have. If they have an old version they can force the app to check for updates.</small></p>
       <div class="form-group clearfix">
         <div class="col-sm-12">
           <textarea data-tinymce id="appInfo" class="form-control"></textarea>
@@ -32,5 +34,6 @@
 
 <template id="template-info">
   <h2>\{{appName}}</h2>
+  <p>View <a href="#" target="_blank">privacy policy</a>. View <a href="#" target="_blank">terms of use</a></p>
   <p>&copy; \{{organisationName}} \{{currentYear}}</p>
 </template>
