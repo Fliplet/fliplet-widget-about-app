@@ -2,7 +2,7 @@ var infoTemplate = $('#template-info').html();
 
 var onTinyMCEReady = new Promise(function(resolve) {
   document.addEventListener('tinymce.init', resolve, false);
-})
+});
 
 // TinyMCE INIT
 tinymce.init({
@@ -30,12 +30,16 @@ $('form').submit(function(event) {
   event.preventDefault();
 
   var template = tinymce.get('appInfo').getContent().trim();
-  
+
   Fliplet.App.Settings.set({
-    about: { template: template }
-  }).then(function () {
+    about: {
+      template: template
+    }
+  }).then(function() {
     $('#success-alert').addClass('saved');
-    setTimeout(function(){ $('#success-alert').removeClass('saved'); }, 2000);
+    setTimeout(function() {
+      $('#success-alert').removeClass('saved');
+    }, 2000);
     Fliplet.Widget.complete();
   })
 });
@@ -47,10 +51,10 @@ Fliplet.Widget.onSaveRequest(function() {
 
 // FUNCTIONS
 function init() {
-  onTinyMCEReady.then(function () {
+  onTinyMCEReady.then(function() {
     var about = Fliplet.App.Settings.get('about');
     var template = about && about.template;
-    
+
     if (about && about.hasOwnProperty('template')) {
       tinymce.get('appInfo').setContent(about.template);
     } else {
