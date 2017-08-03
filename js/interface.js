@@ -4,6 +4,12 @@ var onTinyMCEReady = new Promise(function(resolve) {
   document.addEventListener('tinymce.init', resolve, false);
 });
 
+var about = Fliplet.App.Settings.get('about');
+
+if (!about) {
+  $('.about-warning').removeClass('hidden');
+}
+
 // TinyMCE INIT
 tinymce.init({
   selector: '#appInfo',
@@ -36,12 +42,8 @@ $('form').submit(function(event) {
       template: template
     }
   }).then(function() {
-    $('#success-alert').addClass('saved');
-    setTimeout(function() {
-      $('#success-alert').removeClass('saved');
-    }, 2000);
-    Fliplet.Widget.complete();
-  })
+    Fliplet.Widget.save();
+  });
 });
 
 // Fired from Fliplet Studio when the external save button is clicked
@@ -52,7 +54,6 @@ Fliplet.Widget.onSaveRequest(function() {
 // FUNCTIONS
 function init() {
   onTinyMCEReady.then(function() {
-    var about = Fliplet.App.Settings.get('about');
     var template = about && about.template;
 
     if (about && about.hasOwnProperty('template')) {
@@ -60,6 +61,8 @@ function init() {
     } else {
       tinymce.get('appInfo').setContent(infoTemplate);
     }
+
+    Fliplet.Widget.autosize();
   });
 }
 
