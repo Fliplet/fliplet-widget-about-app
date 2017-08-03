@@ -1,36 +1,25 @@
-<div class="widget-holder">
-  <form class="form form-horizontal">
-    <header>
-      <p>Configure the About this app overlay</p>
-      <a href="#">Need help?</a>
-    </header>
-
-    <div role="alert" class="fade-transition alert alert-success" id="success-alert">
-      The About this app has been updated
-    </div>
-
-    <div class="app-information">
-      <p><small><strong>As a default, this section will be included in all apps and Fliplet will not assist with its removal as some of the legal agreements associated with using Fliplet’s open source technology require a link to the specific documentation.</strong></small>
+<form class="form form-horizontal">
+  <div class="app-information">
+    <div class="form-group clearfix">
+      <div class="col-sm-8">
+        <textarea data-tinymce id="appInfo" class="form-control"></textarea>
+        <div class="alert alert-warning about-warning hidden" role="alert">
+          <p>You need to click 'Save' for the information above to be shown on your app's "About this app" overlay.</p>
+        </div>
+      </div>
+      <div class="col-sm-4 usage">
+        <h2><small>How to use</small></h2>
+        <p>Below we provide three variables that you can use on your text above.</p>
         <p>
-          <p><small>Use the 'About this app' overlay to show legal and regulatory information.<br>To load the 'About this app' overlay, tap the icon at the bottom of your app's menu.<br>The 'About this app' overlay will also help you to debug the app and confirm what version your users have. If they have an old version they can force the app to check for updates.</small></p>
-          <div class="form-group clearfix">
-            <div class="col-sm-12">
-              <textarea data-tinymce id="appInfo" class="form-control"></textarea>
-            </div>
-            <div class="col-sm-12">
-              <h2><small>How to use</small></h2>
-              <p>Use the following to:</p>
-              <ul>
-                <li><code>\{{appName}}</code> - insert your app name</li>
-                <li><code>\{{organisationName}}</code> - insert your organisation name</li>
-                <li><code>\{{currentYear}}</code> - insert the current year</li>
-              </ul>
-            </div>
-          </div>
+          <code>\{{appName}}</code> - insert your app name<br>
+          <code>\{{organisationName}}</code> - insert your organisation name<br>
+          <code>\{{currentYear}}</code> - insert the current year
+        </p>
+      </div>
     </div>
-
-  </form>
-</div>
+    <hr>
+  </div>
+</form>
 
 <template id="template-info">
   <h2>\{{appName}}</h2>

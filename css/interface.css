@@ -2,64 +2,8 @@ body {
   background-color: transparent;
 }
 
-.widget-holder {
-  padding: 15px 15px 60px;
-}
-
-#success-alert {
-  display: none;
-}
-
-#success-alert.saved {
-  display: block;
-}
-
-header {
-  display: flex;
-  font-size: 1em;
-  border-bottom: 1px solid #E3E9EB;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5em;
-}
-
-.title-header {
-  font-size: 1.0em;
-  border-bottom: 1px solid #E3E9EB;
-  margin-bottom: 1.5em;
-  margin-top: 1.5em;
-  padding-bottom: 1em;
-}
-
-header.titles {
-  font-weight: bold;
-}
-
-header p {
-  flex: 1;
-  margin: 0 1.4rem 0 0;
-}
-
-.title-header p {
-  margin: 0 1.4rem 0 0;
-  font-weight: bold;
-}
-
-.title-header p+p {
-  font-weight: normal;
-}
-
-header a {
-  text-decoration: none;
-}
-
-#success-alert {
-  opacity: 0;
-  -webkit-transition: opacity 0.3s ease;
-  transition: opacity 0.3s ease;
-}
-
-#success-alert.saved {
-  opacity: 1;
+.app-information {
+  overflow: hidden;
 }
 
 .app-information .mce-panel, .app-information .mce-btn {
@@ -68,4 +12,14 @@ header a {
 
 .app-information .mce-btn:hover {
   background-color: #f2f6f7;
+}
+
+.about-warning {
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.usage h2 {
+  margin-top: 0;
+  line-height: 0;
 }
