@@ -9,6 +9,7 @@
   "html_tag": "div",
   "interface": {
     "dependencies": [
+      "handlebars",
       "fliplet-core",
       "fliplet-studio-ui",
       "tinymce",
