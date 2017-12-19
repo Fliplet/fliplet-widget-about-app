@@ -37,10 +37,18 @@ $('form').submit(function(event) {
 
   var template = tinymce.get('appInfo').getContent().trim();
 
+  try {
+    Handlebars.compile(template)();
+  } catch (e) {
+    return alert('Your "about this app" template has got an error and could not be saved.\r\n\r\n' + e);
+  }
+
   Fliplet.App.Settings.set({
     about: {
       template: template
     }
+  }, function (err) {
+    alert(err);
   }).then(function() {
     Fliplet.Widget.save();
   });
