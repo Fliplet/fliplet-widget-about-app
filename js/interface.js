@@ -15,7 +15,8 @@ tinymce.init({
   selector: '#appInfo',
   plugins: [
     'lists advlist image charmap hr code',
-    'searchreplace wordcount insertdatetime table textcolor colorpicker'
+    'searchreplace wordcount insertdatetime table textcolor colorpicker',
+    'link'
   ],
   toolbar: [
     'formatselect |',
