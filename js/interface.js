@@ -15,7 +15,8 @@ tinymce.init({
   selector: '#appInfo',
   plugins: [
     'lists advlist image charmap hr code',
-    'searchreplace wordcount insertdatetime table textcolor colorpicker'
+    'searchreplace wordcount insertdatetime table textcolor colorpicker',
+    'link'
   ],
   toolbar: [
     'formatselect |',
@@ -23,7 +24,7 @@ tinymce.init({
     'forecolor backcolor |',
     'alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |',
     'blockquote subscript superscript | table insertdatetime charmap hr |',
-    'removeformat | code'
+    'link | removeformat | code'
   ].join(' '),
   menubar: false,
   statusbar: false,
