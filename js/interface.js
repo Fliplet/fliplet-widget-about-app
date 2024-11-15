@@ -23,7 +23,7 @@ tinymce.init({
     'forecolor backcolor |',
     'alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |',
     'blockquote subscript superscript | table insertdatetime charmap hr |',
-    'removeformat | code'
+    'link | removeformat | code'
   ].join(' '),
   menubar: false,
   statusbar: false,
